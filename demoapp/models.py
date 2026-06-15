@@ -3,7 +3,17 @@ from django.db import models
 # Create your models here.
 
 
-class Student(models.Model):
+class BaseModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
+
+    class Meta:
+        abstract = True
+
+
+class Student(BaseModel):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     age = models.IntegerField(null=True, blank=True)
