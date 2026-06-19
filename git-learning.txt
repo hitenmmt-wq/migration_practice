@@ -1,1 +1,1 @@
-feature work 2
+See git-learning-guide.md for the full practice plan.
